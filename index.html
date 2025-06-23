@@ -1,31 +1,59 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tikatu AR</title>
+    <title>Tikatu AR com Som</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
     <style>
       body { margin: 0; overflow: hidden; }
+      #ativarSom {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 100;
+        padding: 10px 15px;
+        font-size: 14px;
+        background-color: #34a853;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
+    <!-- Botão para ativar o som em celulares que bloqueiam autoplay -->
+    <button id="ativarSom" onclick="document.querySelector('#audio1').play()">Ativar Som</button>
+
     <a-scene embedded arjs>
-      <!-- Câmera + AR.js -->
       <a-marker preset="hiro">
+        <!-- Modelo 3D -->
         <a-entity
           gltf-model="mascote.glb"
           scale="0.8 0.8 0.8"
           position="0 0 0"
           rotation="0 180 0">
         </a-entity>
+
+        <!-- Som automático -->
+        <a-entity
+          sound="src: #audio1; autoplay: true"
+          position="0 1 0">
+        </a-entity>
+
+        <!-- Texto flutuante -->
         <a-entity
           text="value: Rio Mutari - Turbidez Alta; color: black; width: 2"
-          position="0 1.5 0"
+          position="0 1.6 0"
           rotation="-30 0 0">
         </a-entity>
       </a-marker>
 
       <a-entity camera></a-entity>
+
+      <!-- Definição do áudio -->
+      <audio id="audio1" src="fala.mp3" preload="auto"></audio>
     </a-scene>
   </body>
 </html>
