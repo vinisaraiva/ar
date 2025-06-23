@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,19 +22,17 @@
   </head>
   <body>
     <a-scene embedded arjs>
-      <!-- Marcador Hiro -->
       <a-marker preset="hiro">
-        <!-- Mascote Tikatu -->
         <a-entity
-          gltf-model="https://models.readyplayer.me/654a4017cd8ec24bb55dc031.glb"
+          gltf-model="mascote.glb"
           scale="0.8 0.8 0.8"
           position="0 0 0"
           rotation="0 180 0">
         </a-entity>
 
-        <!-- Fala do mascote -->
         <a-entity
-          text="value: Olá! Eu sou o guardião do Rio Mutari.\nNa última coleta, o nível de turbidez foi 80 NTU.; color: black; width: 2.5"
+          text="value: Olá! Eu sou o guardião do Rio Mutari.
+Na última coleta, o nível de turbidez foi 80 NTU.; color: black; width: 2.5"
           position="0 2 0"
           rotation="-30 0 0">
         </a-entity>
@@ -44,7 +43,6 @@
 
     <div id="msgbox">
       Aponte para o marcador <strong>Hiro</strong> com a câmera do seu celular. <br>
-      Se ainda não tem, use este marcador: <br>
       <a href="https://jeromeetienne.github.io/AR.js/data/images/HIRO.jpg" target="_blank">Baixar marcador Hiro</a>
     </div>
   </body>
